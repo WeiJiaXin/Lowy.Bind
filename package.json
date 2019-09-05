@@ -1,0 +1,9 @@
+{
+    "name": "com.lowy.binder",
+    "displayName": "Binder",
+    "version": "1.0.1",
+    "unity": "2018.3",
+    "description": "创建项目，实现提前反射。",
+    "keywords": ["binding", "binder"],
+    "category": "Module"
+}
