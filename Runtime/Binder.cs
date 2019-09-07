@@ -20,7 +20,11 @@ namespace Lowy.Bind
 
         public static Binding Bind<K>()
         {
-            var k = typeof(K);
+            return Bind(typeof(K));
+        }
+
+        public static Binding Bind(Type k)
+        {
             if (_dic.ContainsKey(k))
                 return _dic[k];
             var binding = new Binding(k);
@@ -30,15 +34,22 @@ namespace Lowy.Bind
 
         public static void UnBind<K>(string name = null)
         {
-            if(GetBind<K>()==null)
+            UnBind(typeof(K),name);
+        }
+        public static void UnBind(Type k,string name = null)
+        {
+            if(GetBind(k)==null)
                 return;
-            GetBind<K>().UnBindAll();
-            _dic.Remove(typeof(K));
+            GetBind(k).UnBindAll();
+            _dic.Remove(k);
         }
 
         public static Binding GetBind<K>()
         {
-            var k = typeof(K);
+            return GetBind(typeof(K));
+        }
+        public static Binding GetBind(Type k)
+        {
             if (_dic.ContainsKey(k))
                 return _dic[k];
             return null;
